@@ -9,8 +9,10 @@ ServiceBusSender sender;
 // number of messages to be sent to the queue
 const int numOfMessages = 3;
 
-client = new ServiceBusClient(
-    "Endpoint=sb://localhost:5672;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;");
+const string connection = "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;";
+
+
+client = new ServiceBusClient(connection);
 sender = client.CreateSender("queue.1");
 
 // create a batch 
